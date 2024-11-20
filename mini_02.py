@@ -1,4 +1,4 @@
-def fun(l1:list, l2:list):
+def fun(l1: list, l2: list):
     sus = []
     for i in range(min(len(l1), len(l2))):
         sus.append((l1[i], l2[i]))
@@ -14,4 +14,3 @@ def tests():
 
 
 tests()
-
