@@ -18,7 +18,7 @@ class SingletonClass(metaclass=SingletonMeta):
 >>> c1 is c2
 True
 >>> c1.value
-42
+4200
 >>> c2.value
 42
 """
