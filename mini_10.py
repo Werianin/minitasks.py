@@ -12,16 +12,12 @@ class SingletonClass(metaclass=SingletonMeta):
         self.value = value
 
 
-"""
->>> c1 = SingletonClass("42")
->>> c2 = SingletonClass("I Hate 42")
->>> c1 is c2
-True
->>> c1.value
-4200
->>> c2.value
-42
-"""
+c1 = SingletonClass("42")
+c2 = SingletonClass("I Hate 42")
+print(c1 is c2)  # True
+print(c1.value)  # 42
+print(c2.value)  # 42
+
 
 if __name__ == "__main__":
     import doctest
