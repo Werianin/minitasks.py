@@ -17,7 +17,6 @@ def tests():
     assert fun(-123) == 3
     assert fun(0) == 0
 
-
     print('All tests passed')
 
 
