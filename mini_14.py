@@ -28,8 +28,8 @@ def game_of_life_numpy(field):
     return ((neighbors == 3) | ((field == 1) & (neighbors == 2))).astype(int)
 
 
-size = 1024
-iterations = 128
+size = 128
+iterations = 32
 field = initialize_field(size)
 
 
