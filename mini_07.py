@@ -4,7 +4,8 @@ import functools
 def deprecated(func=None, *, since=None, will_be_removed=None):
     if func is None:
         return functools.partial(deprecated,
-                                 since=since, will_be_removed=will_be_removed)
+                                 since=since,
+                                 will_be_removed=will_be_removed)
     """
         >>> def bar(): print("Hello from bar")
         >>> bar = deprecated(bar)
@@ -49,7 +50,19 @@ def deprecated(func=None, *, since=None, will_be_removed=None):
 def foo():
     print("Hello from foo")
 
+
+@deprecated(since="4.2.0")
+def hello():
+    print("Hello from hello")
+
+
 foo()
+# Warning: function foo is deprecated It will be removed in future versions.
+# Hello from foo
+hello()
+# Warning: function hello is deprecated since version 4.2.0. It will be removed in future versions.
+# Hello from hello
+
 
 if __name__ == "__main__":
     import doctest
