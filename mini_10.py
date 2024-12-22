@@ -1,10 +1,12 @@
 class SingletonMeta(type):
-    instances = {}
+    def __new__(cls, name, bases, dct):
+        dct['instance'] = None
+        return super().__new__(cls, name, bases, dct)
 
     def __call__(cls, *args, **kwargs):
-        if cls not in cls.instances:
-            cls.instances[cls] = super().__call__(*args, **kwargs)
-        return cls.instances[cls]
+        if cls.instance is None:
+            cls.instance = super().__call__(*args, **kwargs)
+        return cls.instance
 
 
 class SingletonClass(metaclass=SingletonMeta):

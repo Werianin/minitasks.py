@@ -1,3 +1,6 @@
+import functools
+
+
 def coroutine(function):
     """
     >>> st = coroutine(storage)
@@ -6,6 +9,7 @@ def coroutine(function):
     >>> st.send(52)
     storage size is 2
     """
+    @functools.wraps(function)
     def new_func(*args, **kwargs):
         gen = function(*args, **kwargs)
         next(gen)  # 😏
